@@ -5,73 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>dTECT Training Guides</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap">
 <style>
-:root { --bg: #f4f7f9; --surface: #ffffff; --ink: #15212c; --muted: #546474; --line: #dbe3ea; --brand: #1b5e85;
-  --mark: #d9530b; --f-body: "Roboto", "Segoe UI", system-ui, sans-serif; --f-label: "Roboto Condensed", "Arial Narrow", sans-serif; }
+:root { --bg: #f4f7f9; --card: #ffffff; --ink: #15212c; --muted: #546474; --line: #cfd9e2; --brand: #1b5e85; --on-brand: #ffffff; --err: #b3261e; }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #0f161d; --surface: #17212b; --ink: #e6edf3; --muted: #9aabbb; --line: #283643; --brand: #7cc0e6;
-    --mark: #ff8a4c; color-scheme: dark; }
+  :root { --bg: #0f161d; --card: #17212b; --ink: #e6edf3; --muted: #9aabbb; --line: #2c3a47; --brand: #7cc0e6; --on-brand: #0f161d; --err: #ff8a80; color-scheme: dark; }
 }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--f-body);
-  padding: 40px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); }
-.wrap { max-width: 860px; margin: 0 auto; display: grid; gap: 28px; }
-.label { font: 700 12.5px/1 var(--f-label); letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
-h1 { margin: 6px 0 0; font-size: clamp(32px, 5vw, 44px); line-height: 1.1; letter-spacing: -.015em; }
-.lede { margin: 0; font-size: 18px; max-width: 62ch; }
-.note { margin: 0; color: var(--muted); font-size: 15px; }
-section { display: grid; gap: 10px; }
-section h2 { margin: 0; }
-ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-a.g { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; align-items: start; text-decoration: none;
-  color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
-a.g:hover { border-color: var(--brand); }
-a.g:focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; }
-.n { width: 34px; height: 34px; border-radius: 50%; background: var(--mark); color: #fff; display: grid; place-items: center;
-  font-weight: 700; margin-top: 2px; }
-.t { display: grid; gap: 2px; min-width: 0; }
-.t b { font-size: 18px; color: var(--brand); }
-.t span { color: var(--muted); font-size: 15px; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 "Roboto", "Segoe UI", system-ui, sans-serif;
+  display: grid; place-items: center; padding: 0 max(16px, env(safe-area-inset-left, 0px)); }
+form { width: 100%; max-width: 380px; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 28px; display: grid; gap: 14px; }
+h1 { margin: 0; font-size: 22px; }
+p { margin: 0; color: var(--muted); font-size: 14.5px; }
+label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+input { width: 100%; font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); }
+input:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+button { font: 600 15px/1 "Roboto", "Segoe UI", system-ui, sans-serif; padding: 12px; border: 0; border-radius: 8px; background: var(--brand); color: var(--on-brand); cursor: pointer; }
+button:disabled { opacity: .6; cursor: progress; }
+#err { color: var(--err); min-height: 1.5em; }
+body.trying form { visibility: hidden; }
+a { color: var(--brand); font-size: 14.5px; }
 </style>
 </head>
-<body>
-<div class="wrap">
-  <header>
-    <span class="label">dTECT feature guides</span>
-    <h1>Learning dTECT</h1>
-  </header>
-  <p class="lede">Short guides to dTECT's main features, each with a demo video and step-by-step pictures taken from
-  the real app. They are in a sensible order for a first read.</p>
-  <p class="note">Each guide asks for the password you were given. You only need to type it once per browser tab.</p>
-  <section>
-    <h2 class="label">Map and navigation</h2>
-    <ol>
-      <li><a class="g" href="map-basics/"><span class="n">1</span><span class="t"><b>Map Basics</b><span>Move and zoom the map, choose a basemap, switch light and dark, and make room for the map.</span></span></a></li>
-      <li><a class="g" href="switch-region/"><span class="n">2</span><span class="t"><b>Switch Region</b><span>Change which region&#x27;s roads, results and figures you are looking at.</span></span></a></li>
-      <li><a class="g" href="search/"><span class="n">3</span><span class="t"><b>Search</b><span>Find a road by name or segment number, or a dashcam video by its file name.</span></span></a></li>
-    </ol>
-  </section>
-  <section>
-    <h2 class="label">Reading the network</h2>
-    <ol>
-      <li><a class="g" href="network-condition/"><span class="n">4</span><span class="t"><b>Network Condition</b><span>Read the region&#x27;s overall condition score, and how much of the network it covers.</span></span></a></li>
-      <li><a class="g" href="analysis-layers/"><span class="n">5</span><span class="t"><b>Analysis Layers</b><span>Show road condition, signs, pavement defects, guardrails and a heatmap on the map.</span></span></a></li>
-      <li><a class="g" href="segment-card/"><span class="n">6</span><span class="t"><b>Road Segment Card</b><span>Open a road&#x27;s card to see its photos, condition score and every finding.</span></span></a></li>
-    </ol>
-  </section>
-  <section>
-    <h2 class="label">Videos</h2>
-    <ol>
-      <li><a class="g" href="video-playback/"><span class="n">7</span><span class="t"><b>Video Playback</b><span>Play a dashcam video with dTECT&#x27;s findings drawn on top.</span></span></a></li>
-    </ol>
-  </section>
-  <section>
-    <h2 class="label">Managing work</h2>
-    <ol>
-      <li><a class="g" href="task-manager/"><span class="n">8</span><span class="t"><b>Task Manager</b><span>Find and check the region&#x27;s uploaded videos and Street View surveys.</span></span></a></li>
-    </ol>
-  </section>
-</div>
+<body class="trying">
+<form id="f">
+  <h1>dTECT Training Guides</h1>
+  <p>dTECT's training guides are for Deighton staff. Enter the password you were given; you only need to do it once.</p>
+  <div style="display:grid;gap:6px">
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" required autofocus>
+  </div>
+  <button id="go" type="submit">Open</button>
+  <p id="err" role="alert"></p>
+</form>
+<script>
+const P = {"salt": "gFgY0VjIz2Co3dHcDYmMYg==", "iv": "pxU7ib+LC+ZaqfhS", "iter": 600000, "ct": "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"};
+const KEPT = "dtect-guide-pw";
+const b64 = s => fetch("data:application/octet-stream;base64," + s).then(r => r.arrayBuffer());
+async function unlock(pw) {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt: await b64(P.salt), iterations: P.iter, hash: "SHA-256" },
+    base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+  const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: await b64(P.iv) }, key, await b64(P.ct));
+  const view = new DataView(plain);
+  const hlen = view.getUint32(0);
+  const head = JSON.parse(new TextDecoder().decode(new Uint8Array(plain, 4, hlen)));
+  let html = head.html;
+  const start = 4 + hlen;
+  for (const m of head.media) {
+    const url = URL.createObjectURL(new Blob([new Uint8Array(plain, start + m.offset, m.size)], { type: m.type }));
+    html = html.split(m.path).join(url);
+  }
+  try { localStorage.setItem(KEPT, pw); } catch (x) { /* storage blocked: ask again next time */ }
+  document.open();
+  document.write(html);
+  document.close();
+}
+(async () => {
+  let kept = null;
+  try { kept = localStorage.getItem(KEPT); } catch (x) { /* storage blocked */ }
+  if (kept) {
+    try { await unlock(kept); return; }
+    catch (x) { try { localStorage.removeItem(KEPT); } catch (y) { /* storage blocked */ } }
+  }
+  document.body.classList.remove("trying");
+  document.getElementById("pw").focus();
+})();
+document.getElementById("f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const go = document.getElementById("go"), err = document.getElementById("err");
+  go.disabled = true; go.textContent = "Opening..."; err.textContent = "";
+  try {
+    await unlock(document.getElementById("pw").value);
+  } catch (x) {
+    err.textContent = "That password is not right. Check it and try again.";
+    go.disabled = false; go.textContent = "Open";
+  }
+});
+</script>
 </body>
 </html>
